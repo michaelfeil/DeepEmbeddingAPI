@@ -466,7 +466,7 @@ def analyze(img_path, actions = ('emotion', 'age', 'gender', 'race') , models = 
 
 		return resp_obj
 
-def find(img_path, db_path, model_name ='VGG-Face', distance_metric = 'cosine', model = None, enforce_detection = True, detector_backend = 'opencv', align = True, prog_bar = True, normalization = 'base'):
+def find(img_path, db_path, model_name ='VGG-Face', distance_metric = 'cosine', model = None, enforce_detection = True, detector_backend = 'opencv', align = True, prog_bar = True, normalization = 'base', buffer_db_as_pkl=False):
 
 	"""
 	This function applies verification several times and find an identity in a database
@@ -538,7 +538,7 @@ def find(img_path, db_path, model_name ='VGG-Face', distance_metric = 'cosine', 
 		file_name = "representations_%s.pkl" % (model_name)
 		file_name = file_name.replace("-", "_").lower()
 
-		if path.exists(db_path+"/"+file_name):
+		if path.exists(db_path+"/"+file_name) and buffer_db_as_pkl:
 
 			print("WARNING: Representations for images in ",db_path," folder were previously stored in ", file_name, ". If you added new instances after this file creation, then please delete this file and call find function again. It will create it again.")
 

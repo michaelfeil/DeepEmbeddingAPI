@@ -4,8 +4,6 @@ import os
 import glob
 
 from deepface_private import DeepFace
-# db_path
-db_path = os.path.expanduser("~/Desktop/sys_sec/Images")
 
 def create_encoded_database_from_jpg(db_path, dir_decoded = "db_decoded", dir_encoded = "db_encode", model_name="Facenet"):
     search_paths = []

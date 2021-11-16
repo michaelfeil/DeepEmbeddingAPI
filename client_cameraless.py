@@ -1,3 +1,5 @@
+# does NOT have access to the camera or any PNG / JPG images.
+
 import numpy as np
 import cv2
 import os

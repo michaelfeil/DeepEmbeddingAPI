@@ -24,3 +24,6 @@ python client_cameraless.py
 
 ## Licence for students outside the Project Group:
 Copy or reuse of the parts of code for Submissions at Technical University of Denmark is not allowed.
+
+## Licence for the deepface_private Fork
+See licenceing of deepface in ./deepface_private

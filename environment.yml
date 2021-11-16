@@ -1,0 +1,26 @@
+# to create dsfm conda env:
+# conda env create --file environment.yml
+
+# to update:
+# conda activate dsfm
+# conda env update --file environment.yml --prune
+
+# include with version id
+
+name: syssec # data science for mobility
+channels:
+- conda-forge
+dependencies:
+- python=3.8
+- anaconda
+- pip
+# conda packages, append used dependences
+- numpy=1.21.2
+- h5py=2.10.0
+# jupyter / ipython
+- jupyterlab
+- tensorflow>2.2.0
+- pip:
+  - opencv-python
+
+# pip install -e ./deepface_private

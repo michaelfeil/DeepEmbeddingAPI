@@ -4,6 +4,8 @@
 create new conda enviroment `syssec` using anaconda
 ```
 conda env create --file ./environment.yml
+conda activate syssec
+pip install -e ./deepface_private
 ```
 
 ## 1.2 keeping up to date
@@ -14,10 +16,10 @@ conda env update --file environment.yml --prune
 ```
 
 ## 2. Usage
-Start Jupyter Lab
+Running the live demo
 ```
 conda activate syssec
-jupyter lab
+python client_cameraless.py
 ```
 
 ## Licence for students outside the Project Group:

@@ -11,7 +11,7 @@ from camera_host import create_encoded_database_from_jpg, get_encoding_from_imag
 MODEL_NAME = "Facenet"
 
 # db_path
-db_path = os.path.expanduser("~/Desktop/syssec/Images")
+db_path = os.path.expanduser("~/Desktop/syssec/Project/Images")
 create_encoded_database_from_jpg(db_path)
 
 # only have access to db_encode_Facenet, not to the original images

@@ -3,13 +3,14 @@ Author: michaelfeil.eu
 
 """
 
-
+from typing import Optional
 from fastapi import FastAPI
 
 from deepface_private import DeepFace
 import os
 import numpy as np
 import cv2
+MODEL_DEFAULT = "Facenet"
 
 app = FastAPI(
         title="DeepCameraAPI",
@@ -18,12 +19,12 @@ app = FastAPI(
         terms_of_service="https://github.com/michaelfeil/syssec",
         contact={
             "name": "Michael Feil",
-            "url": "michaelfeil.eu",
+            "url": "https://michaelfeil.eu",
             "email": "syssec[AT]michaelfeil.eu",
         },
         license_info={
             "name": "MIT",
-            "url": "",
+            "url": "https://raw.githubusercontent.com/git/git-scm.com/main/MIT-LICENSE.txt",
         },
     )
 
@@ -55,9 +56,11 @@ def read_root():
     return {"DeepFaceAPI": "running"}
 
 
-@app.get("/camera/{modelname}")
-def read_item(modelname: str):
+@app.get("/camera")
+def read_item(modelname: Optional[str]):
     """request to take image with camera and embed"""
+    if modelname is None:
+        modelname = MODEL_DEFAULT
     args = {"model_name": modelname}
     return_dict = {
         "modelname": modelname,
@@ -77,9 +80,11 @@ def read_item(modelname: str):
     return return_dict
 
 
-@app.get("/image/{modelname}")
-def read_item(modelname: str, path_load: str):
+@app.get("/image")
+def read_item(modelname: Optional[str], path_load: str):
     """request to take image from storage and embed. Might be removed in the future."""
+    if modelname is None:
+        modelname = MODEL_DEFAULT
     return_dict = {
         "modelname": modelname,
         "embedding": [],

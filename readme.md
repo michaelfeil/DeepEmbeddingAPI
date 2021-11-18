@@ -18,17 +18,25 @@ conda env update --file environment.yml --prune
 
 ## 2. Usage
 
-## FAST-API:
+### FAST-API:
 start Fast-API app with uvicorn:
-```uvicorn deepcamera_host_fastapi:app --reload```
+```
+uvicorn deepcamera_host_fastapi:app --reload
+```
+The api is now exposed under http://127.0.0.1:8000/ . 
+For the API documentation check out http://127.0.0.1:8000/docs
 
-run client application
+
+### FAST-API clients applications:
+To get embedings go to http://127.0.0.1:8000/camera?modelname=Facenet
+
+sample client application for RE-ID / Reidentification:
 ```
 conda activate syssec
 # place user1 in front of camera for 5 seconds -> register user1
-python registeruser_client_fastapi.py --name mister_x 
-# place user2 in front of camera for 5 seconds -> register user2
-python registeruser_client_fastapi.py --name miss_y 
+python registeruser_client_fastapi.py --name user1 
+# place user2,3,4.. in front of camera for 5 seconds -> register user2
+python registeruser_client_fastapi.py --name user2 
 # evalute which user is sitting in front of the camera.
 python simple_client_fastapi.py
 ```

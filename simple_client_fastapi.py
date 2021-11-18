@@ -37,12 +37,10 @@ if __name__ == "__main__":
         result = DeepFace.find(
             img_path=camera_represenation, db_path=PATH_ENCODED_DB, model_name=MODELNAME
         )
-
         if result.empty:
-            print("No similar emeddings. Face not known! :)")
+            print("No similar embeddings. Face not known! :)")
             continue
-
         result.identity = result.identity.str.split(
             pat=PATH_ENCODED_DB, n=1, expand=True
         )[1]
-        print(result)
+        print(f"Similar Faces: \n {result}")

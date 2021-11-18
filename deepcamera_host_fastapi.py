@@ -3,7 +3,6 @@ Author: michaelfeil.eu
 
 """
 
-from typing import Optional
 
 from fastapi import FastAPI
 
@@ -12,7 +11,21 @@ import os
 import numpy as np
 import cv2
 
-app = FastAPI()
+app = FastAPI(
+        title="DeepCameraAPI",
+        description="",
+        version="0.0.1",
+        terms_of_service="https://github.com/michaelfeil/syssec",
+        contact={
+            "name": "Michael Feil",
+            "url": "michaelfeil.eu",
+            "email": "syssec[AT]michaelfeil.eu",
+        },
+        license_info={
+            "name": "MIT",
+            "url": "",
+        },
+    )
 
 
 def represent_image(args):
@@ -66,7 +79,7 @@ def read_item(modelname: str):
 
 @app.get("/image/{modelname}")
 def read_item(modelname: str, path_load: str):
-    """request to take image from storage camera and embed"""
+    """request to take image from storage and embed. Might be removed in the future."""
     return_dict = {
         "modelname": modelname,
         "embedding": [],

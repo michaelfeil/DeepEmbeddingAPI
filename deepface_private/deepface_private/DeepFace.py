@@ -552,7 +552,7 @@ def find(img_path, db_path, model_name ='VGG-Face', distance_metric = 'cosine', 
 
 			for r, d, f in os.walk(db_path): # r=root, d=directories, f = files
 				for file in f:
-					if ('.jpg' in file.lower()) or ('.png' in file.lower()):
+					if ('.jpg' in file.lower()) or ('.png' in file.lower()) or ('.npy' in file.lower()):
 						exact_path = r + "/" + file
 						employees.append(exact_path)
 

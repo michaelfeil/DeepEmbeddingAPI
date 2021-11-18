@@ -11,7 +11,6 @@ from deepface_private import DeepFace
 import os
 import numpy as np
 import cv2
-import requests
 
 app = FastAPI()
 

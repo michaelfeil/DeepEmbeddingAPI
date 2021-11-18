@@ -18,25 +18,20 @@ conda env update --file environment.yml --prune
 
 ## 2. Usage
 
-## Testing
-Running the live demo
-```
-conda activate syssec
-python client_cameraless.py
-```
-
 ## FAST-API:
 start Fast-API app with uvicorn:
 ```uvicorn deepcamera_host_fastapi:app --reload```
 
-start client
+run client application
 ```
 conda activate syssec
-# register user
-python registeruser_client_fastapi.py --name misterx 
+# place user1 in front of camera for 5 seconds -> register user1
+python registeruser_client_fastapi.py --name mister_x 
+# place user2 in front of camera for 5 seconds -> register user2
+python registeruser_client_fastapi.py --name miss_y 
+# evalute which user is sitting in front of the camera.
 python simple_client_fastapi.py
 ```
-
 
 ## Licence for students outside the Project Group:
 Copy or reuse of the parts of code for Submissions at Technical University of Denmark is not allowed.

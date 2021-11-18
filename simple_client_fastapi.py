@@ -11,7 +11,7 @@ MODELNAME = "Facenet"
 # Previously requested Embeddings
 PATH_ENCODED_DB = os.path.join(os.path.expanduser("~/syssec/syssec/Images"), "db_encode_"+MODELNAME)
 
-def get_embedding_from_camera_api(model_name = MODELNAME):
+def get_embedding_from_camera_api(model_name):
     """request embeddings from API until success"""
     while True:
         print("Request new embedding from api")
@@ -27,7 +27,7 @@ def get_embedding_from_camera_api(model_name = MODELNAME):
 if __name__ == "__main__":
     while True:
         # get embedding
-        camera_represenation = get_embedding_from_camera_api()
+        camera_represenation = get_embedding_from_camera_api(MODELNAME)
         print("Got an camera_represenation. Comaring to Database! :)")
 
         # compare to previous embeddings

@@ -1,10 +1,6 @@
-# does have access to the camera and exposes embeddings as output
-
 import numpy as np
-import cv2
 import os
 import glob
-import tempfile
 
 from deepface_private import DeepFace
 

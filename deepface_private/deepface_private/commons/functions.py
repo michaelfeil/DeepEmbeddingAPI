@@ -25,6 +25,15 @@ elif tf_major_version == 2:
 
 #--------------------------------------------------
 
+class EmbeddingHolder():
+	def __init__(self, embedding):
+		if	type(embedding) == np.ndarray:
+			self.embedding = embedding
+		elif type(embedding) == list:
+			self.embedding = np.asarray(embedding)
+		else:
+			raise BaseException("embedding is not list or np.ndarray")
+
 def initialize_input(img1_path, img2_path = None):
 
 	if type(img1_path) == list:

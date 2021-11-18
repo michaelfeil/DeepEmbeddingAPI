@@ -1,4 +1,4 @@
-from deepface import DeepFace
+from deepface_private import DeepFace
 from tqdm import tqdm
 import os
 from os import path

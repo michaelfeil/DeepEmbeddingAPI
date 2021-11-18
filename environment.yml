@@ -12,14 +12,16 @@ channels:
 - conda-forge
 dependencies:
 - python=3.8
-- anaconda
 - pip
 # conda packages, append used dependences
 - numpy=1.21.2
+- pandas=1.3.4
 - h5py=2.10.0
 # jupyter / ipython
 - jupyterlab
-- tensorflow>2.2.0
+- tensorflow=2.4.3
+- fastapi
+- "uvicorn[standard]"
 - pip:
   - opencv-python
 

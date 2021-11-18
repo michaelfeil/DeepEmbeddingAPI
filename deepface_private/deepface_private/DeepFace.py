@@ -540,7 +540,7 @@ def find(img_path, db_path, model_name ='VGG-Face', distance_metric = 'cosine', 
 
 		if path.exists(db_path+"/"+file_name) and buffer_db_as_pkl:
 
-			print("WARNING: Representations for images in ",db_path," folder were previously stored in ", file_name, ". If you added new instances after this file creation, then please delete this file and call find function again. It will create it again.")
+			# print("WARNING: Representations for images in ",db_path," folder were previously stored in ", file_name, ". If you added new instances after this file creation, then please delete this file and call find function again. It will create it again.")
 
 			f = open(db_path+'/'+file_name, 'rb')
 			representations = pickle.load(f)
@@ -593,7 +593,7 @@ def find(img_path, db_path, model_name ='VGG-Face', distance_metric = 'cosine', 
 			pickle.dump(representations, f)
 			f.close()
 
-			print("Representations stored in ",db_path,"/",file_name," file. Please delete this file when you add new identities in your database.")
+			# print("Representations stored in ",db_path,"/",file_name," file. Please delete this file when you add new identities in your database.")
 
 		#----------------------------
 		#now, we got representations for facial database
@@ -738,14 +738,13 @@ def represent(img_path, model_name = 'VGG-Face', model = None, enforce_detection
 
 	Returns:
 		Represent function returns a multidimensional vector. The number of dimensions is changing based on the reference model. E.g. FaceNet returns 128 dimensional vector; VGG-Face returns 2622 dimensional vector.
-	"""
-	if type(img_path) is np.ndarray:
-		# representation is already a list
-		return img_path.tolist()
-	
+	"""	
 	if type(img_path) is str:
 		if img_path.endswith(".npy") or img_path.endswith(".npz"):
 			return np.load(img_path)
+
+	if isinstance(img_path, functions.EmbeddingHolder):
+		return img_path.embedding
 
 	if model is None:
 		model = build_model(model_name)

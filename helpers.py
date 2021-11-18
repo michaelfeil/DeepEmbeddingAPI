@@ -4,6 +4,7 @@ import numpy as np
 import cv2
 import os
 import glob
+import tempfile
 
 from deepface_private import DeepFace
 
@@ -17,22 +18,18 @@ def create_encoded_database_from_jpg(db_path, dir_decoded = "db_decoded", dir_en
         path_orig = path
         # path
         path = path.replace(os.sep + dir_decoded + os.sep, os.sep + dir_encoded+"_"+model_name + os.sep)
-        os.makedirs(os.path.dirname(path), exist_ok=True)
+        
         if os.path.exists(path):
             continue
 
         img_representation = DeepFace.represent(path_orig, model_name)
         
-        #
-        np.save(path, np.asarray(img_representation))
+        safe_img_representation(path, img_representation)
 
-def get_encoding_from_camera(model_name="Facenet") -> np.ndarray:
-    camera = cv2.VideoCapture(0, cv2.CAP_V4L)
-    if not camera.isOpened():
-        print('Unable to load camera.')
-    return_value, image = camera.read()
-    del(camera)
-    return DeepFace.represent(image, model_name)
+def safe_img_representation(path, img_representation):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    np.save(path, np.asarray(img_representation))
 
-def get_encoding_from_image(image, model_name="Facenet") -> np.ndarray:
-    return np.asarray(DeepFace.represent(image, model_name))
+if __name__ == "__main__":
+    db_path = os.path.expanduser("~/syssec/syssec/Images")
+    create_encoded_database_from_jpg(db_path)

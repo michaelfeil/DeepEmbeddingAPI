@@ -1,6 +1,8 @@
 """
 Author: michaelfeil.eu
 
+run: 
+uvicorn deepcamera_host_fastapi:app --reload
 """
 
 from typing import Optional
@@ -13,8 +15,8 @@ import cv2
 MODEL_DEFAULT = "Facenet"
 
 app = FastAPI(
-        title="DeepCameraAPI",
-        description="",
+        title="DeepEmbeddingAPI",
+        description="Enhancing privacy and security in Computer Vision by exposing Deep Learning Embeddings as API",
         version="0.0.1",
         terms_of_service="https://github.com/michaelfeil/syssec",
         contact={

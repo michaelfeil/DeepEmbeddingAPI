@@ -18,7 +18,7 @@ def get_embedding_from_camera_api(model_name):
     """request embeddings from API until success"""
     while True:
         print("Request new embedding from api")
-        result = requests.get("http://127.0.0.1:8000/camera/" + model_name)
+        result = requests.get("http://127.0.0.1:8000/camera?modelname=" + model_name)
         response = json.loads(result.content)
 
         if response["success"] == True:

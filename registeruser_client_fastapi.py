@@ -22,7 +22,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--recordtime",
         "-r",
-        help="Time to store embeddings as person name from camera",
+        help="Duration to store embeddings as person name from camera",
         type=int,
         default=6,
     )

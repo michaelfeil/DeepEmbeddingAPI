@@ -2,7 +2,13 @@
 ### Project for Course "Current Topics at System Security Fall 21" at Technical University of Denmark
 
 ## 1.1 Installation
-Have [conda](https://docs.anaconda.com/anaconda/install/linux/) installed.
+
+
+clone repository.
+```
+git clone https://github.com/michaelfeil/DeepEmbeddingAPI.git
+```
+Have [Anaconda](https://docs.anaconda.com/anaconda/install/linux/) installed.
 create new conda enviroment `syssec` using anaconda
 ```
 conda env create --file ./environment.yml
@@ -33,6 +39,7 @@ To get embedings go to http://127.0.0.1:8000/camera?modelname=Facenet
 
 sample client application for RE-ID / Reidentification:
 ```
+# In another terminal
 conda activate syssec
 # place user1 in front of camera for 5 seconds -> register user1
 python registeruser_client_fastapi.py --name user1 

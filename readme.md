@@ -1,4 +1,5 @@
-# Project for Course "Current Topics at System Security Fall 21" at Technical University of Denmark
+# Paper "Enhancing privacy and security in Computer Vision by exposing Deep Learning Embeddings as API"
+### Project for Course "Current Topics at System Security Fall 21" at Technical University of Denmark
 
 ## 1.1 Installation
 Have [conda](https://docs.anaconda.com/anaconda/install/linux/) installed.
@@ -43,6 +44,7 @@ python simple_client_fastapi.py
 
 ## Licence for students outside the Project Group:
 Copy or reuse of the parts of code for Submissions at Technical University of Denmark is not allowed.
+Paper authors: Michael Feil, Hanna Reß, William Hansen, Kristóf Maár 
 
 ## Licence for the deepface_private Fork
 See licenceing of deepface in ./deepface_private
